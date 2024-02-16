@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
- 
+<head>
+    <title>S571661</title>
+</head>
 <body>
     <h1>Animal game by OMPRAKASH REDDY CHAMALA</h1>
 
@@ -15,7 +17,8 @@
 
     <input type="button" onclick="resolveForm()" value="Get values from form">
 </form>
-<form id="animalForm">
+<p id="result">This text will be replaced </p>
+<form >
     <label for="hiddenAnimal">The hidden animal type:</label>
     <input type="password" id="hiddenAnimal" value="Chicken" required>
     <br>
@@ -25,7 +28,9 @@
     <button type="button" onclick="checkAnimal()">Check the guess</button>
 </form>
 <div id="result"></div>
-<p id="result">This text will be replaced </p>
+<div id="imageContainer">
+    <img src="Mango juice.jpg" alt="Drink" onclick="selectImage()" width="150" height="150">
+</div>
 <script> 
         let correct = 0;
         let wrong = 0;
@@ -45,6 +50,25 @@
             }
             const resultElement = document.getElementById('result');
             resultElement.innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
+        }
+        let useImage = 1;
+        function selectImage()
+        {
+        switch(useImage)
+        {
+            case 1:
+                document.querySelector("#imageContainer img").src = "lemon.jpg";
+                useImage = 2;
+                break;
+            case 2:
+                document.querySelector("#imageContainer img").src = "Honey lemonade.jpg";
+                useImage = 3;
+                break;
+            case 3:
+                document.querySelector("#imageContainer img").src = "Mango juice.jpg";
+                useImage = 1;
+                break;
+        }
         }
         function resolveForm ()
         {
