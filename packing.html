@@ -19,7 +19,7 @@
         </label>
     </form>
     <button onclick="selectforPacking()">Select for packing</button>
-    <div id="result"></div>
+    <div id="packresult"></div>
 <h2>Getting input</h2>
 <form>
     <label for="form1_age">What is your age </label>
@@ -37,7 +37,7 @@ function selectforPacking()
     my_pack.light = document.getElementById('light').checked;
     my_pack.carry = document.getElementById('carry').checked;
     my_pack.tablet = document.getElementById('tablet').checked;
-    document.getElementById('result').innerHTML = JSON.stringify(my_pack);
+    document.getElementById('packresult').innerHTML = `Result: ${my_pack}`;
 } 
 function resolveForm (){
     console.log("Getting form values")
