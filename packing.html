@@ -20,6 +20,13 @@
     </form>
     <button onclick="selectPack()">Select for packing</button>
     <div id="packresult"></div>
+    <form id="updatePackForm">
+        <label for="travelMonth">Enter travel month:</label>
+        <input type="text" id="travelMonth" value="May"><br>
+        <label for="price">Enter price:</label>
+        <input type="text" id="price"><br>
+        <button onclick="updatePack()">Update the pack</button>
+    </form>
 <h2>Getting input</h2>
 <form>
     <label for="form1_age">What is your age </label>
@@ -30,15 +37,22 @@
 </form>
 <p id="result">This text will be replaced </p>
 <script>
-        let my_pack = {};
-function selectPack() 
-{
-    my_pack = {};
-    my_pack.light = document.getElementById('light').checked;
-    my_pack.carry = document.getElementById('carry').checked;
-    my_pack.tablet = document.getElementById('tablet').checked;
-    document.getElementById('packresult').innerHTML = `Result: ${my_pack}`;
-} 
+    let my_pack = {};
+    function selectPack() 
+    {
+        my_pack = {};
+        my_pack.light = document.getElementById('light').checked;
+        my_pack.carry = document.getElementById('carry').checked;
+        my_pack.tablet = document.getElementById('tablet').checked;
+        document.getElementById('packresult').innerHTML = `Result: ${my_pack}`;
+    } 
+    function updatePack() 
+    {
+        let month = document.getElementById('travelMonth').value;
+        let price = document.getElementById('price').value;
+        my_pack[month] = price;
+        document.getElementById('packresult').innerHTML = `Result: ${my_pack}`;
+    }
 function resolveForm (){
     console.log("Getting form values")
     age = document.getElementById("form1_age").value
