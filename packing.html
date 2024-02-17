@@ -18,7 +18,7 @@
             <input type="checkbox" id="Tablet" value="False">Tablet
         </label>
     </form>
-    <button onclick="selectforPacking()">Select for packing</button>
+    <button onclick="selectPack()">Select for packing</button>
     <div id="packresult"></div>
 <h2>Getting input</h2>
 <form>
@@ -31,7 +31,7 @@
 <p id="result">This text will be replaced </p>
 <script>
         let my_pack = {};
-function selectforPacking() 
+function selectPack() 
 {
     my_pack = {};
     my_pack.light = document.getElementById('light').checked;
