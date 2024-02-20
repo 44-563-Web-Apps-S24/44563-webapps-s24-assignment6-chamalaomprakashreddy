@@ -5,28 +5,31 @@
 </head>
 <body>
     <h1>Omprakash Reddy Chamala packs for a trip</h1>
-    <form id="packingForm">
-        <label>
-            <input type="checkbox" id="Pack light" value="True">Pack light
-        </label>
+    <form>
+        <input type="checkbox" id="Pack_light" value="True">
+        <label for="Pack_light"> Pack light</label>
         <br>
-        <label>
-            <input type="checkbox" id="carry on" value="True">Carry on
-        </label>
+        <input type="checkbox" id="Carry_on" value="True">
+        <label for="Carry_on">Carry on</label>
         <br>
-        <label>
-            <input type="checkbox" id="Tablet" value="False">Tablet
-        </label>
-    </form>
-    <button onclick="selectPack()">Select for packing</button>
-    <div id="packresult"></div>
-    <form id="updatePackForm">
-        <label for="travelMonth">Enter travel month:</label>
-        <input type="text" id="travelMonth" value="May"><br>
-        <label for="price">Enter price:</label>
-        <input type="text" id="price"><br>
-        <button onclick="updatePack()">Update the pack</button>
-    </form>
+        <input type="checkbox" id="Tablet" value="False">
+        <label for="Tablet">Tablet</label>
+        <br>
+        <button type="button" onclick="selectPack()">Select for packing</button>
+    </form>    
+    <p id="result">This text will be replaced </p>    
+    <form>
+        <label for="Month">Enter travel month</label>
+        <input type="text" id="Month" value="May"> 
+        <br>
+        <br>
+        <label for="Price">Enter price</label>
+        <input type="text" id="Price"> 
+        <br>
+        <br>
+        <button type="button" onclick="updatePack()">Update the pack</button>
+    </form>    
+    <p id="priceresult">This text will be replaced </p>
 <h2>Getting input</h2>
 <form>
     <label for="form1_age">What is your age </label>
@@ -37,21 +40,24 @@
 </form>
 <p id="result">This text will be replaced </p>
 <script>
-    let my_pack = {};
+     var my_pack ={};
     function selectPack() 
     {
         my_pack = {};
-        my_pack.light = document.getElementById('light').checked;
-        my_pack.carry = document.getElementById('carry').checked;
-        my_pack.tablet = document.getElementById('tablet').checked;
-        document.getElementById('packresult').innerHTML = `Result: ${my_pack}`;
-    } 
-    function updatePack() 
+        var firstLight = document.getElementById("Pack_light").checked;
+        var secondLight = document.getElementById("Carry_on").checked;
+        var thirdLight = document.getElementById("Tablet").checked;
+        my_pack.light = firstLight;
+        my_pack.carry = secondLight;
+        my_pack.tablet = thirdLight;
+        document.getElementById('result').innerHTML = "Result: " + JSON.stringify(my_pack);
+    }
+    function updatePack()
     {
-        let month = document.getElementById('travelMonth').value;
-        let price = document.getElementById('price').value;
-        my_pack[month] = price;
-        document.getElementById('packresult').innerHTML = `Result: ${my_pack}`;
+        var monthInput = document.getElementById("Month").value;
+        var PriceInput = document.getElementById("Price").value;
+        my_pack[monthInput] = PriceInput;
+        document.getElementById('priceresult').innerHTML = "Result: " + JSON.stringify(my_pack);
     }
 function resolveForm (){
     console.log("Getting form values")
